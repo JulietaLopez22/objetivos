@@ -209,11 +209,6 @@
 
 <footer>
   <div class="wrap">
-    <div class="author">
-      <label for="author">Elaborado por</label>
-      <input type="text" id="author" placeholder="Nombre del integrante">
-      <span class="print-name" id="authorShow"></span>
-    </div>
     <p class="ref">Referencia: Doran, G. T. (1981). «There's a S.M.A.R.T. way to write management's goals and objectives». <i>Management Review</i>, 70(11), 35-36.</p>
   </div>
 </footer>
@@ -314,14 +309,6 @@
     KEYS.forEach(function (k) { el[k].value = ""; });
     build(); el.S.focus();
   });
-
-  /* Nombre del integrante */
- /* var author = document.getElementById("author"), show = document.getElementById("authorShow");
-  try { var saved = localStorage.getItem("smart-author"); if (saved) { author.value = saved; show.textContent = saved; } } catch (e) {}
-  author.addEventListener("input", function () {
-    show.textContent = author.value;
-    try { localStorage.setItem("smart-author", author.value); } catch (e) {}
-  });*/
 })();
 </script>
 </body>
