@@ -159,11 +159,6 @@ input:focus { border-color: var(--link); }
 
 /* Pie */
 footer { padding-block: 32px 56px; color: var(--muted); font-size: 14px; }
-.author { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.author label { font-weight: 700; color: var(--fg); }
-.author input { max-width: 320px; }
-.print-name { font-family: var(--f-display); font-size: 22px; color: var(--fg); }
-footer .ref { margin-top: 14px; }
 
 @media (max-width: 900px) {
   .keys, .examples { grid-template-columns: repeat(3, 1fr); }
