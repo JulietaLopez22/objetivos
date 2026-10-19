@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Objetivos SMART</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="label">Técnica de planeación · Doran, 1981</p>
+    <h1>Objetivos SMART</h1>
+    <p class="lede">Una meta vaga se vuelve un plan cuando responde cinco preguntas: qué, cuánto, con qué recursos, para qué y para cuándo. Cada letra de las siglas en inglés es una de ellas.</p>
+
+    <div class="before-after">
+      <div class="vague"><span class="label">Antes</span><s>«Quiero estar en forma.»</s></div>
+      <div class="smart-card">
+        <p class="label" style="margin-bottom:10px">Después</p>
+        <p class="smart-sentence" id="sentence">
+          <span class="seg" data-k="S">Correré los 5 km de la carrera de mi facultad<sup>S</sup></span>
+          <span class="seg" data-k="M">en menos de 35 minutos<sup>M</sup></span>,
+          <span class="seg" data-k="A">entrenando 3 veces por semana desde los 3 km que corro hoy<sup>A</sup></span>,
+          <span class="seg" data-k="R">para llegar en forma al torneo deportivo<sup>R</sup></span>
+          <span class="seg" data-k="T">antes del 15 de diciembre<sup>T</sup></span>.
+        </p>
+        <div class="letters" id="letters" role="group" aria-label="Resaltar criterio">
+          <button data-k="S" aria-pressed="false"><b>S</b> Específico</button>
+          <button data-k="M" aria-pressed="false"><b>M</b> Medible</button>
+          <button data-k="A" aria-pressed="false"><b>A</b> Alcanzable</button>
+          <button data-k="R" aria-pressed="false"><b>R</b> Relevante</button>
+          <button data-k="T" aria-pressed="false"><b>T</b> Temporal</button>
+        </div>
+        <p class="hint">Toca una letra para ver qué parte de la frase cumple ese criterio.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="criterios">
+    <h2>Los cinco criterios</h2>
+    <p class="intro">Elige una letra. Cada criterio incluye las preguntas que sirven para revisar una meta y un ejemplo mal planteado junto a su versión corregida.</p>
+    <div class="tabs" role="tablist" id="tabs" aria-label="Criterios SMART">
+      <button role="tab" data-k="S" aria-selected="true">S · Específico</button>
+      <button role="tab" data-k="M" aria-selected="false">M · Medible</button>
+      <button role="tab" data-k="A" aria-selected="false">A · Alcanzable</button>
+      <button role="tab" data-k="R" aria-selected="false">R · Relevante</button>
+      <button role="tab" data-k="T" aria-selected="false">T · Temporal</button>
+    </div>
+    <div class="panel" id="panel" role="tabpanel"></div>
+  </section>
+
+  <section id="constructor">
+    <h2>Construye tu objetivo</h2>
+    <p class="intro">Llena cada campo y la frase se arma sola. Los textos iniciales son un ejemplo; reemplázalos con tu propia meta.</p>
+    <div class="builder">
+      <div class="fields">
+        <div class="field" data-k="S">
+          <label for="f-s"><i>S</i> Específico</label>
+          <small>¿Qué voy a lograr exactamente?</small>
+          <input type="text" id="f-s" value="Presentar mi proyecto final de Administración con una exposición de 15 minutos">
+        </div>
+        <div class="field" data-k="M">
+          <label for="f-m"><i>M</i> Medible</label>
+          <small>¿Con qué número sabré que lo logré?</small>
+          <input type="text" id="f-m" value="obteniendo una calificación mínima de 9.0">
+        </div>
+        <div class="field" data-k="A">
+          <label for="f-a"><i>A</i> Alcanzable</label>
+          <small>¿Con qué tiempo, recursos y habilidades cuento?</small>
+          <input type="text" id="f-a" value="ensayando 4 veces por semana y con la asesoría de mi profesor">
+        </div>
+        <div class="field" data-k="R">
+          <label for="f-r"><i>R</i> Relevante</label>
+          <small>¿Para qué me sirve y con qué meta mayor se conecta?</small>
+          <input type="text" id="f-r" value="porque mejora mi promedio y me prepara para entrevistas de prácticas">
+        </div>
+        <div class="field" data-k="T">
+          <label for="f-t"><i>T</i> Temporal</label>
+          <small>¿Cuál es la fecha límite?</small>
+          <input type="date" id="f-t">
+        </div>
+      </div>
+      <div class="result">
+        <p class="label">Tu objetivo SMART</p>
+        <div class="meter" id="meter" aria-hidden="true">
+          <span data-k="S"></span><span data-k="M"></span><span data-k="A"></span><span data-k="R"></span><span data-k="T"></span>
+        </div>
+        <p class="generated" id="generated"></p>
+        <p class="status" id="status" role="status"></p>
+        <div>
+          <button class="btn" id="copy" type="button">Copiar objetivo</button><button class="btn ghost" id="clear" type="button">Vaciar campos</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="uso">
+    <h2>Cómo usarla y dónde falla</h2>
+    <div class="two">
+      <div>
+        <h3>Cuándo conviene</h3>
+        <ul>
+          <li>Metas académicas, como entregar un proyecto o subir un promedio.</li>
+          <li>Metas laborales: ventas, productividad, capacitación del equipo.</li>
+          <li>Metas personales como ahorro, salud o hábitos de estudio.</li>
+          <li>Planeación de proyectos en equipo, porque todos leen la misma meta con el mismo criterio.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Errores comunes</h3>
+        <ul>
+          <li>Poner un número sin conocer el punto de partida, y que la meta sea imposible.</li>
+          <li>Confundir una tarea («investigar») con un resultado («entregar un informe de 10 páginas»).</li>
+          <li>Fijar la meta y no revisarla: conviene definir fechas intermedias.</li>
+          <li>Plantear metas que no se conectan con lo que de verdad importa a la persona o al equipo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="author">
+      <label for="author" class="label">Elaborado por</label>
+      <input type="text" id="author" placeholder="Nombre del integrante">
+      <span class="print-name" id="authorShow"></span>
+    </div>
+    <p style="margin-top:14px">Referencia: Doran, G. T. (1981). «There's a S.M.A.R.T. way to write management's goals and objectives». <i>Management Review</i>, 70(11), 35-36.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var CRIT = {
+    S: { n: "Específico", en: "Specific", def: "La meta dice con claridad qué se quiere lograr, quién participa y dónde ocurre. Una persona ajena debería entenderla sin pedir explicaciones.", q: ["¿Qué quiero lograr exactamente?", "¿Quién participa o se ve afectado?", "¿Dónde o en qué contexto sucede?", "¿Por qué quiero lograrlo?"], bad: "Quiero mejorar en la escuela.", good: "Entregar a tiempo las cuatro tareas de Contabilidad y exponer mi tema ante el grupo." },
+    M: { n: "Medible", en: "Measurable", def: "La meta incluye un indicador con el que se comprueba el avance y el resultado final: una cantidad, un porcentaje, una calificación o una frecuencia.", q: ["¿Cuántos, cuánto o con qué frecuencia?", "¿Qué dato me dirá que voy avanzando?", "¿Cómo sabré que ya terminé?"], bad: "Quiero ahorrar más dinero.", good: "Ahorrar $1,500 al mes, registrados en una hoja de cálculo." },
+    A: { n: "Alcanzable", en: "Achievable", def: "La meta exige esfuerzo, pero es posible con el tiempo, los recursos y las habilidades disponibles. Se parte de la situación real de hoy.", q: ["¿Tengo el tiempo y los recursos necesarios?", "¿Qué debo aprender o conseguir antes?", "¿Alguien lo ha logrado en condiciones parecidas?"], bad: "Pasar de no correr nunca a un maratón completo en una semana.", good: "Pasar de 2 km a 5 km en ocho semanas, aumentando 500 m cada semana." },
+    R: { n: "Relevante", en: "Relevant", def: "La meta tiene sentido para la persona o la organización y se conecta con un objetivo mayor, como una carrera, un proyecto o un valor.", q: ["¿Para qué me sirve este objetivo?", "¿Se alinea con mis metas de largo plazo?", "¿Es buen momento para trabajar en él?"], bad: "Una estudiante de Contaduría decide dedicar el semestre a aprender diseño de moda.", good: "Obtener una certificación básica de Excel, útil para sus prácticas en un despacho contable." },
+    T: { n: "Temporal", en: "Time-bound", def: "La meta tiene fecha límite y, si es larga, fechas intermedias. El plazo crea prioridad y permite medir si se va a tiempo.", q: ["¿Cuándo empiezo y cuándo termino?", "¿Qué debo tener listo a la mitad del camino?", "¿Con qué frecuencia revisaré el avance?"], bad: "Algún día voy a terminar mi tesis.", good: "Terminar el capítulo 1 el 30 de noviembre y entregar la tesis completa el 15 de marzo." }
+  };
+  var KEYS = ["S", "M", "A", "R", "T"];
+
+  /* Portada: resaltar criterio */
+  var sentence = document.getElementById("sentence");
+  var letterBtns = document.querySelectorAll("#letters button");
+  var activeLetter = null;
+  function setLetter(k) {
+    activeLetter = (activeLetter === k) ? null : k;
+    sentence.classList.toggle("focus", !!activeLetter);
+    sentence.querySelectorAll(".seg").forEach(function (s) { s.classList.toggle("on", s.dataset.k === activeLetter); });
+    letterBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.k === activeLetter)); });
+  }
+  letterBtns.forEach(function (b) { b.addEventListener("click", function () { setLetter(b.dataset.k); }); });
+
+  /* Criterios */
+  var panel = document.getElementById("panel");
+  var tabs = document.querySelectorAll("#tabs button");
+  function showTab(k) {
+    var c = CRIT[k];
+    tabs.forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.k === k)); });
+    panel.style.setProperty("--segc", "var(--c-" + k.toLowerCase() + ")");
+    panel.innerHTML =
+      '<div><h3>' + k + ' · ' + c.n + '</h3><p class="en">' + c.en + '</p>' +
+      '<p class="def">' + c.def + '</p><p class="label" style="margin-top:16px">Preguntas guía</p><ul>' +
+      c.q.map(function (q) { return "<li>" + q + "</li>"; }).join("") + '</ul></div>' +
+      '<div class="compare"><div class="ex bad"><span class="label">Mal planteado</span><p>' + c.bad + '</p></div>' +
+      '<div class="ex good"><span class="label">Bien planteado</span><p>' + c.good + '</p></div></div>';
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { showTab(t.dataset.k); });
+    t.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      var n = tabs[(i + d + tabs.length) % tabs.length];
+      n.focus(); showTab(n.dataset.k);
+    });
+  });
+  showTab("S");
+
+  /* Constructor */
+  var ids = { S: "f-s", M: "f-m", A: "f-a", R: "f-r", T: "f-t" };
+  var el = {};
+  KEYS.forEach(function (k) { el[k] = document.getElementById(ids[k]); });
+  var gen = document.getElementById("generated");
+  var status = document.getElementById("status");
+  var meterSpans = document.querySelectorAll("#meter span");
+  var plain = "";
+
+  (function setDefaultDate() {
+    var d = new Date(); d.setDate(d.getDate() + 56);
+    var m = String(d.getMonth() + 1).padStart(2, "0"), day = String(d.getDate()).padStart(2, "0");
+    el.T.value = d.getFullYear() + "-" + m + "-" + day;
+  })();
+
+  function esc(s) { return s.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+  function trimEnd(s) { return s.trim().replace(/[.,;:\s]+$/, ""); }
+  function fmtDate(v) {
+    if (!v) return "";
+    var p = v.split("-");
+    var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+    return parseInt(p[2], 10) + " de " + meses[parseInt(p[1], 10) - 1] + " de " + p[0];
+  }
+  var NAMES = { S: "específico", M: "medible", A: "alcanzable", R: "relevante", T: "temporal" };
+
+  function build() {
+    var v = {
+      S: trimEnd(el.S.value), M: trimEnd(el.M.value), A: trimEnd(el.A.value),
+      R: trimEnd(el.R.value), T: fmtDate(el.T.value)
+    };
+    var filled = 0, missing = [];
+    KEYS.forEach(function (k, i) {
+      var on = !!v[k];
+      meterSpans[i].classList.toggle("on", on);
+      if (on) filled++; else missing.push(NAMES[k]);
+    });
+    var order = [["S", v.S], ["M", v.M], ["A", v.A], ["R", v.R], ["T", v.T ? "antes del " + v.T : ""]];
+    var seq = order.filter(function (o) { return o[1]; });
+    if (!seq.length) {
+      plain = ""; gen.textContent = "Escribe en los campos para armar tu objetivo.";
+    } else {
+      plain = seq.map(function (o) { return o[1]; }).join(", ") + ".";
+      plain = plain.charAt(0).toUpperCase() + plain.slice(1);
+      gen.innerHTML = seq.map(function (o) { return "<em>" + esc(o[1]) + "</em>"; }).join(", ").replace(/^<em>(.)/, function (m, c) { return "<em>" + c.toUpperCase(); }) + ".";
+    }
+    status.textContent = filled === 5
+      ? "Los cinco criterios están cubiertos. Revisa que el número y la fecha sean realistas."
+      : "Faltan: " + missing.join(", ") + ".";
+  }
+  KEYS.forEach(function (k) { el[k].addEventListener("input", build); });
+  build();
+
+  document.getElementById("copy").addEventListener("click", function () {
+    var btn = this;
+    function done(t) { btn.textContent = t; setTimeout(function () { btn.textContent = "Copiar objetivo"; }, 1800); }
+    if (!plain) { done("Escribe algo primero"); return; }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(gen);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      done("Texto seleccionado, copia con Ctrl+C");
+    }
+    try {
+      navigator.clipboard.writeText(plain).then(function () { done("Copiado"); }, fallback);
+    } catch (e) { fallback(); }
+  });
+  document.getElementById("clear").addEventListener("click", function () {
+    KEYS.forEach(function (k) { el[k].value = ""; });
+    build(); el.S.focus();
+  });
+
+  /* Nombre del integrante */
+  var author = document.getElementById("author"), show = document.getElementById("authorShow");
+  try { var saved = localStorage.getItem("smart-author"); if (saved) { author.value = saved; show.textContent = saved; } } catch (e) {}
+  author.addEventListener("input", function () {
+    show.textContent = author.value;
+    try { localStorage.setItem("smart-author", author.value); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
